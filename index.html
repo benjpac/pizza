@@ -10,24 +10,63 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <form id="pizza-picker">
-          <select class="form-control" id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extra_large">Extra-Large</option>
-          </select>
-          <div class="form-group">
-            <input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
-            <input type="checkbox" name="toppings" value="sausage">Sausage<br>
-            <input type="checkbox" name="toppings" value="chicken">Chicken<br>
-            <input type="checkbox" name="toppings" value="olives">Olives<br>
-            <input type="checkbox" name="toppings" value="onions">Onions<br>
-            <input type="checkbox" name="toppings" value="bell_peppers">Bell Peppers<br>
-          </div>
-         <button type="submit">Add to cart</button>
-        </form>
+      <h2 id="header">Ben's Pizza Palace</h2>
+      <div id="pizza" class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">Add Pizza</h2>
+        </div>
+        <div class="panel-body">
+          <form id="pizza-picker">
+            <div class="form-group">
+              <select class="selectpicker" data-style="btn-warning" id="size">
+                <option value="small">Small $10</option>
+                <option value="medium">Medium $12</option>
+                <option value="large">Large $14</option>
+                <option value="extra_large">Extra-Large $16</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="pepperoni">Pepperoni + $1</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="sausage">Sausage + $1</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="chicken">Chicken + $1</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="olives">Olives + $0.75</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="onions">Onions + $0.75</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="bell_peppers">Bell Peppers + $0.75</label>
+              </div>
+            </div>
+           <button class="btn btn-default" type="submit">Add to cart</button>
+          </form>
+        </div>
+      </div>
+      <div id="total "class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Order Total</h3>
+        </div>
+        <div id="checkout" class="panel-body">
+          <h4></h4>
+          <button id="checkout" class="btn btn-default">Check Out</button>
+        </div>
+      </div>
+      <div id="delivery" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Delivery or Pickup?</h3>
+        </div>
+        <div id="final" class="panel-body">
+          <h4></h4>
+          <button id="delivery-button" class="btn btn-default">Delivery</button>
+          <button id="pickup-button" class="btn btn-default">Pickup</button>
+        </div>
       </div>
     </div>
   </body>
