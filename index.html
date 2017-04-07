@@ -2,19 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <script src="js/jquery-3.2.0.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Ben's Pizza Palace</title>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <form id="">
+        <form id="pizza-picker">
           <select class="form-control" id="size">
             <option>Small</option>
             <option>Medium</option>
             <option>Large</option>
             <option>Extra-Large</option>
           </select>
-          
+          <div class="form-group">
+            <input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
+            <input type="checkbox" name="toppings" value="sausage">Sausage<br>
+            <input type="checkbox" name="toppings" value="chicken">Chicken<br>
+            <input type="checkbox" name="toppings" value="olives">Olives<br>
+            <input type="checkbox" name="toppings" value="onions">Onions<br>
+            <input type="checkbox" name="toppings" value="bell_peppers">Bell Peppers<br>
+          </div>
+         <button type="submit">Add to cart</button>
         </form>
       </div>
     </div>

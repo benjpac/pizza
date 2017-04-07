@@ -17,6 +17,7 @@ var sizePrices = {
                    large: 14,
                    extra_large: 16
                  }
+
 var toppingPrices = {
                       pepperoni: 1,
                       sausage: 1,
@@ -26,24 +27,39 @@ var toppingPrices = {
                       bell_peppers: .75
                     }
 
-function Pizza(size, toppings, delivery) {
+function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
-  this.delivery = delivery;
   this.cost = 0;
   this.calcCost = function() {
     this.cost += sizePrices[this.size];
     this.toppings.forEach(function(topping) {
+      console.log(topping)
+      console.log(toppingPrices[topping])
       this.cost += toppingPrices[topping];
+      console.log(this.cost)
     })
   }
 }
+var pizza = new Pizza("small", ["onions", "pepperoni"]);
+pizza.calcCost();
+console.log(pizza);
 
-function Delivery(street, ) {
-  this.street
-  this.address =
-}
+// function Delivery(street, ) {
+//   this.street
+//   this.address =
+// }
 
 $(document).ready(function() {
-
-});
+  $("form").submit(function(event) {
+    event.preventDefault();
+    debugger;
+    var size = $("#size").val();
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      var toppings = $(this).val();
+    })
+    // var pizza = new Pizza(size, toppings);
+    // pizza.calcCost();
+    // console.log(pizza);
+  })
+})
