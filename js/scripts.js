@@ -30,18 +30,18 @@ var toppingPrices = {
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
-  this.cost = 0;
   this.calcCost = function() {
+    debugger;
+    this.cost = 0;
     this.cost += sizePrices[this.size];
     this.toppings.forEach(function(topping) {
-      console.log(topping)
-      console.log(toppingPrices[topping])
       this.cost += toppingPrices[topping];
-      console.log(this.cost)
-    })
+    }, this)
   }
 }
-var pizza = new Pizza("small", ["onions", "pepperoni"]);
+
+var pizza = new Pizza("small", ["pepperoni"]);
+console.log(pizza);
 pizza.calcCost();
 console.log(pizza);
 
@@ -53,13 +53,15 @@ console.log(pizza);
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
-    debugger;
     var size = $("#size").val();
+    var toppings = "";
     $("input:checkbox[name=toppings]:checked").each(function() {
-      var toppings = $(this).val();
+      toppings = $(this).val();
+      console.log(toppings)
     })
-    // var pizza = new Pizza(size, toppings);
-    // pizza.calcCost();
-    // console.log(pizza);
+    var pizza = new Pizza(size, toppings);
+    console.log(pizza);
+    pizza.calcCost();
+    console.log(pizza);
   })
 })
