@@ -12,7 +12,6 @@
 // Offer a delivery option that then requires address information.
 
 var totalCost = 0;
-var allItems = [];
 
 var sizePrices = {
                    small: 10,
@@ -33,30 +32,15 @@ var toppingPrices = {
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
-  // this.calcCost = function() {
-  //   debugger;
-  //   this.cost = 0;
-  //   this.cost += sizePrices[this.size];
-  //   this.toppings.forEach(function(topping) {
-  //     this.cost += toppingPrices[topping];
-  //   }, this)
-  // }
 }
 
 Pizza.prototype.calcCost = function() {
-  debugger;
   this.cost = 0;
   this.cost += sizePrices[this.size];
   this.toppings.forEach(function(topping) {
     this.cost += toppingPrices[topping];
   }, this)
 }
-
-// function Delivery(street, ) {
-//   this.street
-//   this.address =
-// }
-
 
 $(document).ready(function() {
   $("form#pizza-picker").submit(function(event) {
@@ -78,10 +62,6 @@ $(document).ready(function() {
       pizza.toppings = ["no toppings"];
     }
 
-    // push pizza object to array
-    allItems.push(pizza)
-    console.log(allItems)
-
     // append total and pizza info to cart
     totalCost += pizza.cost;
     $("#checkout h4").text("$" + totalCost);
@@ -89,7 +69,11 @@ $(document).ready(function() {
   })
   $("#checkout").click(function() {
     $("#pizza").hide();
+    $("button#checkout").hide();
     $("#delivery").show();
+  })
+  $("#delivery-button").click(function() {
+    $("#final h4").text("Please enter your address")
   })
   $("#pickup-button").click(function() {
     $("#final h4").text("Your food will be ready for pickup in 20 minutes")
